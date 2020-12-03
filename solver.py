@@ -37,11 +37,11 @@ def solve(cube: Cube, controller: Controller):
 
 
 def _reverse_cmd(cmd_pass: list[str]):
-    for cmd in cmd_pass:
-        if len(cmd) == 1:
-            cmd = 'c' + cmd
+    for i in range(len(cmd_pass)):
+        if len(cmd_pass[i]) == 1:
+            cmd_pass[i] = 'c' + cmd_pass[i]
         else:
-            cmd = cmd[1]
+            cmd_pass[i] = cmd_pass[i][1]
 
 
 def pre_solve(controller: Controller):
@@ -67,6 +67,8 @@ def pre_solve(controller: Controller):
             if hash_table.count({"cube_str": v_cube.to_str()}):
                 continue
 
+            # u r cu ur
+            # r u cr cu
             u_cmd.append(cmd)
             true_pass = u_cmd.copy()
             true_pass.reverse()
