@@ -45,7 +45,7 @@ def _reverse_cmd(cmd_pass: list[str]):
 
 
 def pre_solve(controller: Controller):
-    start_str = "rrrryyyyoooobbbbggggwwww"
+    start_str = "BBBBDDDDFFFFLLLLRRRRUUUU"
     cube = Cube(start_str)
     client = pymongo.MongoClient('mongodb://localhost:27017/')
     cube_db = client["cube"]
