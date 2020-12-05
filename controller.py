@@ -1,8 +1,10 @@
+from typing import Set
+
 from cube import Cube
 
 
 class Controller:
-    enable_cmd: set[str] = {
+    enable_cmd: Set[str] = {
         "r", "b", "u",
         "cr", "cb", "cu"
     }

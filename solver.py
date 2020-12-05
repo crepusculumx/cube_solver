@@ -1,5 +1,6 @@
 from copy import deepcopy
 from queue import Queue
+from typing import List
 
 import pymongo
 
@@ -17,7 +18,7 @@ def solve(cube: Cube, controller: Controller):
 
     while not q.empty():
         u = q.get_nowait()
-        u_cmd: list[str] = q.get_nowait()
+        u_cmd: List[str] = q.get_nowait()
 
         if Cube(u).is_solved():
             return u_cmd
@@ -36,7 +37,7 @@ def solve(cube: Cube, controller: Controller):
             u_cmd.pop()
 
 
-def _reverse_cmd(cmd_pass: list[str]):
+def _reverse_cmd(cmd_pass: List[str]):
     for i in range(len(cmd_pass)):
         if len(cmd_pass[i]) == 1:
             cmd_pass[i] = 'c' + cmd_pass[i]
@@ -59,7 +60,7 @@ def pre_solve(controller: Controller):
 
     while not q.empty():
         u = q.get_nowait()
-        u_cmd: list[str] = q.get_nowait()
+        u_cmd: List[str] = q.get_nowait()
 
         for cmd in controller.enable_cmd:
             v_cube = Cube(u)

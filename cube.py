@@ -1,5 +1,8 @@
+from typing import Dict, List
+
+
 class Cube:
-    colors: dict[str, list[str]] = {
+    colors: Dict[str, List[str]] = {
         'B': ["0", "0", "0", "0"],
         'D': ["0", "0", "0", "0"],
         'F': ["0", "0", "0", "0"],
@@ -42,7 +45,7 @@ class Cube:
                 self.colors[face][i] = self.colors[face][0]
                 self.colors[face][0] = temp
 
-    def revolve(self, face_order: list[str], change_pos: list[list[int]], counter: bool):
+    def revolve(self, face_order: List[str], change_pos: List[List[int]], counter: bool):
         if counter:
             face_order.reverse()
             change_pos.reverse()
